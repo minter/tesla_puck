@@ -6,6 +6,8 @@ module TeslaPuck
     include Sidekiq::Worker
 
     def perform
+      @config = TeslaPuck::Config.new
+
       game = Scheduler.new
       logger = Logger.new(@config.log_file) if @config.log_enabled
 
