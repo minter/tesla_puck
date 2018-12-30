@@ -32,7 +32,7 @@ Set up a crontab entry to run the worker job once a day:
 
 `0 11 * * * /path/to/ruby -r /path/to/lib/tesla_puck.rb -e 'TeslaPuck::Worker.perform_async'`
 
-Configure systemd or your daemonizer of choice to run Sidekiq.
+Configure systemd or your daemonizer of choice to run Sidekiq. An example is provided in `examples/`
 
 Configure Passenger or your web server of choice to serve up the Sidekiq web admin via Rack. An example for Passenger/Nginx is provided in `examples/nginx-passenger.conf`
 
