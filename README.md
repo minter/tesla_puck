@@ -24,6 +24,8 @@ Clone this repository to your system.
 
 Install the required gems with Bundler
 
+`bundle install --without development`
+
 Copy `config/environment.yml.example` to `config/environment.yml` and edit the values to match your requirements (see below)
 
 Set up a crontab entry to run the worker job once a day:
@@ -32,7 +34,7 @@ Set up a crontab entry to run the worker job once a day:
 
 Configure systemd or your daemonizer of choice to run Sidekiq.
 
-Configure Passenger or your
+Configure Passenger or your web server of choice to serve up the Sidekiq web admin via Rack. An example for Passenger/Nginx is provided in `examples/nginx-passenger.conf`
 
 ## Configuration
 
