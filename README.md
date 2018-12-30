@@ -8,6 +8,8 @@ If the home team wins, it will also honk the horn and flash the lights in celebr
 
 If there's no home game today, it just quietly exits, to try again tomorrow.
 
+**Want to buy a Tesla? Get some free stuff by using [my referral link](https://ts.la/wade22188)!**
+
 ## Requirements
 
 The following technologies are required to run this:

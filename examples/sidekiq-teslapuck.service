@@ -28,7 +28,7 @@ WorkingDirectory=/PATH/TO/tesla_puck
 # If you use rbenv:
 # ExecStart=/bin/bash -lc 'bundle exec sidekiq -e production'
 # If you use the system's ruby:
-ExecStart=/usr/local/bin/bundle exec sidekiq -r /PATH_TO/tesla_puck/lib/tesla_puck.rb
+ExecStart=/usr/local/bin/bundle exec sidekiq -g teslapuck -r /PATH_TO/tesla_puck/lib/tesla_puck.rb
 User=YOUR_USER
 Group=YOUR_GROUP
 UMask=0002
