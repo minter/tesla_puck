@@ -1,3 +1,19 @@
 Metrics/LineLength:
   Exclude:
     - 'lib/**/*'
+
+Metrics/AbcSize:
+  Exclude:
+    - 'lib/**/*'
+
+Metrics/CyclomaticComplexity:
+  Exclude:
+    - 'lib/**/*'
+
+Metrics/MethodLength:
+  Exclude:
+    - 'lib/**/*'
+
+Metrics/PerceivedComplexity:
+  Exclude:
+    - 'lib/**/*'

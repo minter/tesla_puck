@@ -12,18 +12,18 @@ module TeslaPuck
       @car = tesla_api.vehicles.first
     end
 
-    def wake_up
+    def wake_up!
       @car.wake_up
       sleep 5 while @car.vehicle_state.nil?
     end
 
     def at_arena?
       car_coordinates = [@car.drive_state['latitude'], @car.drive_state['longitude']]
-      arena_coordinates = [@config.arena_latitude.to_f, @config.arena_longitude.to_f]
-      Geocoder::Calculations.distance_between(car_coordinates, arena_coordinates) < @config.arena_parking_distance_miles.to_f
+      arena_coordinates = [@config.arena_latitude, @config.arena_longitude]
+      Geocoder::Calculations.distance_between(car_coordinates, arena_coordinates) < @config.arena_parking_distance_miles
     end
 
-    def celebrate
+    def celebrate!
       @car.honk_horn
       @car.flash_lights
       @car.honk_horn
@@ -32,7 +32,7 @@ module TeslaPuck
       @car.flash_lights
     end
 
-    def prepare_to_leave
+    def prepare_to_leave!
       @car.auto_conditioning_start
       @car.navigation_request(@config.home_address)
     end
