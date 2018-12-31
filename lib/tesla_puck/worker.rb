@@ -12,7 +12,7 @@ module TeslaPuck
       logger = Logger.new(@config.log_file) if @config.log_enabled?
 
       # If the scheduler is nil, no games for your team today. Try again tomorrow.
-      unless game.scheduled
+      unless game.scheduled_for_today?
         logger.debug ' There is no game scheduled today for your team. Exiting.' if @config.log_enabled?
         return
       end

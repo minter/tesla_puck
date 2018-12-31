@@ -3,8 +3,6 @@
 module TeslaPuck
   # Models functions with the NHL StatsWeb API
   class Scheduler
-    attr_accessor :scheduled
-
     def initialize
       @config = TeslaPuck::Config.new
       time_zone = TZInfo::Timezone.get(@config.time_zone)
@@ -20,6 +18,10 @@ module TeslaPuck
 
     def status
       @game['games'].first['status']['detailedState']
+    end
+
+    def scheduled_for_today?
+      @scheduled
     end
 
     def pending?
