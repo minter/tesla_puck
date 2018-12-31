@@ -71,8 +71,8 @@ Anaheim Ducks | 24
 Arizona Coyotes | 53
 Boston Bruins | 6
 Buffalo Sabres | 7
-Carolina Hurricanes | 12
 Calgary Flames | 20
+Carolina Hurricanes | 12
 Chicago Blackhawks | 16
 Colorado Avalanche | 21
 Columbus Blue Jackets | 29
