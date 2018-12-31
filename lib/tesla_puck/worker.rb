@@ -25,16 +25,21 @@ module TeslaPuck
       end
 
       # If the game hasn't started yet, re-queue for an hour from now
-      if game.scheduled
+      if game.pending?
         logger.debug 'There is a game today, but it has not started yet. Checking back in an hour.' if @config.log_enabled?
         self.class.perform_in 3600
         return
       end
 
       # Re-queue for 5 minutes later or so if the game is in progress
-      unless game.final?
+      if game.in_progress?
         logger.debug 'Your game is in progress. Checking back in 5 minutes for a final.' if @config.log_enabled?
         self.class.perform_in 300
+        return
+      end
+
+      unless game.final?
+        logger.debug "The game is not final, but is an unexpected state. Status is #{game.status}. Exiting."
         return
       end
 
@@ -43,9 +48,11 @@ module TeslaPuck
       car.wake_up!
       logger.debug 'Your car is now awake.' if @config.log_enabled?
 
-      # Re-queue for tomorrow if the car's not at PNC
-      logger.debug 'Your car is not close enough to the arena. Exiting.' if @config.log_enabled?
-      return unless car.at_arena?
+      # Re-queue for tomorrow if the car's not at the arena
+      unless car.at_arena?
+        logger.debug 'Your car is not close enough to the arena. Exiting.' if @config.log_enabled?
+        return
+      end
 
       # If we've made it this far: The game is final, it's at PNC, and the Tesla is at PNC. Let's start
       # getting ready to go home!

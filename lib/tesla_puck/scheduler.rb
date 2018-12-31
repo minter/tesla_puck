@@ -18,12 +18,20 @@ module TeslaPuck
       @home = @game['games'].first['teams']['home']
     end
 
+    def status
+      @game['games'].first['status']['detailedState']
+    end
+
     def pending?
-      @game['games'].first['status']['detailedState'] == 'Scheduled'
+      status == 'Scheduled'
+    end
+
+    def in_progress?
+      status.match?(/In Progress/)
     end
 
     def final?
-      @game['games'].first['status']['detailedState'] == 'Final'
+      status == 'Final'
     end
 
     def my_team_home?
@@ -32,9 +40,9 @@ module TeslaPuck
 
     def my_team_win?
       win = if @away['team']['id'].to_i == @config.nhl_team_id
-              @away['score'] > home['score']
+              @away['score'] > @home['score']
             else
-              @home['score'] > away['score']
+              @home['score'] > @away['score']
             end
       win
     end
