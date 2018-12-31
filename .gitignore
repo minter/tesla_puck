@@ -1,2 +1,3 @@
 config/environment.yml
 tesla_puck.log
+.bundle/
