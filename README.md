@@ -1,12 +1,14 @@
 # TeslaPuck
 
-Inspired by my friend @RangerRick, this is a weird little NHL/Tesla API mashup. Since I'm attending all Carolina Hurricanes games, driving my Model 3, I'd love for the car to be warmed up and ready to head home as soon as a Canes home game ends.
+Inspired by an idea from my friend [@RangerRick](https://github.com/RangerRick), this is a weird mashup of the [NHL StatsWeb API](https://www.kevinsidwar.com/iot/2017/7/1/the-undocumented-nhl-stats-api) and the [Tesla API](https://github.com/timdorr/tesla-api). Since I'm attending all Carolina Hurricanes games, driving my Model 3, I'd love for the car to be warmed up and ready to head home as soon as a Canes home game ends.
 
-To that end, this little program watches the NHL API for a home game for my team. If there's a home game today, it's gone final, and my car is parked at the arena, it will send an API action to my car to turn on the climate control and set the navigation for home.
+To that end, this little program watches the NHL API for a home game for my team. If there's a home game today, it's gone final, and my car is parked at the arena, it will send an API action to my car to turn on the climate control and set the navigation for home. That way, when I walk out to my car, it's warmed up and ready to head for home!
 
 If the home team wins, it will also honk the horn and flash the lights in celebration!
 
 If there's no home game today, it just quietly exits, to try again tomorrow.
+
+You can use this for your own local team and arena - just set those in the configuration file and run it on your own Ruby-friendly server!
 
 **Want to buy a Tesla? Get some free stuff by using [my referral link](https://ts.la/wade22188)!**
 
