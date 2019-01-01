@@ -39,7 +39,8 @@ module TeslaPuck
       end
 
       unless game.final?
-        logger.debug "The game is not final, but is an unexpected state. Status is #{game.status}. Exiting."
+        logger.debug "The game is not final, but is an unexpected state. Status is #{game.status}. Retrying in 5 minutes."
+        self.class.perform_in 300
         return
       end
 

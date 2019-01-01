@@ -25,7 +25,7 @@ module TeslaPuck
     end
 
     def pending?
-      status == 'Scheduled'
+      status == 'Scheduled' || status == 'Pre-Game'
     end
 
     def in_progress?
