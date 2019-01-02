@@ -5,8 +5,8 @@ module TeslaPuck
   class Scheduler
     def initialize
       @config = TeslaPuck::Config.new
-      time_zone = TZInfo::Timezone.get(@config.time_zone)
-      today = time_zone.to_local(Time.now).strftime('%Y-%m-%d')
+      @time_zone = TZInfo::Timezone.get(@config.time_zone)
+      today = @time_zone.to_local(Time.now).strftime('%Y-%m-%d')
 
       @game = HTTParty.get("https://statsapi.web.nhl.com/api/v1/schedule?teamId=#{@config.nhl_team_id}&date=#{today}")['dates'].first
       @scheduled = @game.nil? ? false : true
@@ -14,6 +14,10 @@ module TeslaPuck
 
       @away = @game['games'].first['teams']['away']
       @home = @game['games'].first['teams']['home']
+    end
+
+    def game_time
+      @time_zone.to_local(Time.parse(@game['games'].first['gameDate']))
     end
 
     def status

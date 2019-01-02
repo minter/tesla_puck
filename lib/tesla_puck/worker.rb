@@ -26,8 +26,8 @@ module TeslaPuck
 
       # If the game hasn't started yet, re-queue for an hour from now
       if game.pending?
-        logger.debug 'There is a game today, but it has not started yet. Checking back in an hour.' if @config.log_enabled?
-        self.class.perform_in 3600
+        logger.debug 'There is a game today, but it has not started yet. Rescheduling for an hour past start time.' if @config.log_enabled?
+        self.class.perform_at(game.game_time + 3600)
         return
       end
 
