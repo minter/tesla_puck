@@ -5,7 +5,12 @@ module TeslaPuck
   class Worker
     include Sidekiq::Worker
 
-    def perform
+    def notify(title, message)
+      client = Rushover::Client.new(@config.pushover_token)
+      client.notify(@config.pushover_user_key, message, title: title)
+    end
+
+    def perform(_notified = false)
       @config = TeslaPuck::Config.new
 
       game = Scheduler.new
@@ -42,6 +47,17 @@ module TeslaPuck
         if @config.log_enabled?
           logger.debug 'Your game is in progress. Checking back in 5 minutes for a final.'
         end
+        if @config.pushover_enabled? && !_notified?
+          _notified = true
+          resp = notify('Game Started', 'Tesla Puck is tracking your game.')
+          if @config.log_enabled?
+            if resp.ok?
+              logger.debug 'Tracking notification sent to Pushover.'
+            else
+              logger.warn 'Tracking notification failed.'
+            end
+          end
+        end
         self.class.perform_in 300
         return
       end
@@ -76,6 +92,18 @@ module TeslaPuck
       if @config.log_enabled?
         logger.debug 'Preparing to turn on climate control and head for home!'
       end
+
+      if @config.pushover_enabled?
+        resp = notify('Starting Climate Control', 'Tesla Puck is turning on climate control.')
+        if @config.log_enabled?
+          if resp.ok?
+            logger.debug 'Climate control notification sent to Pushover.'
+          else
+            logger.warn 'Climate control notification failed.'
+          end
+        end
+      end
+
       car.prepare_to_leave!
     end
   end

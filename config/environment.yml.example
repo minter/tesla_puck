@@ -12,3 +12,6 @@ tesla_password: M0del3!
 time_zone: America/New_York
 nhl_team_id: 12
 web_password: ChangeMe
+pushover_enabled:
+pushover_user_key:
+pushover_token:

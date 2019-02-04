@@ -5,7 +5,7 @@ module TeslaPuck
   class Config
     attr_reader :home_address, :log_file, :redis_url, :tesla_client_id,
                 :tesla_client_secret, :tesla_email, :tesla_password,
-                :time_zone, :web_password
+                :time_zone, :web_password, :pushover_user_key, :pushover_token
 
     def initialize
       config = YAML.load_file(File.join(File.dirname(__FILE__), '../../config/environment.yml'))
@@ -34,6 +34,10 @@ module TeslaPuck
 
     def arena_parking_distance_miles
       @arena_parking_distance_miles.to_f
+    end
+
+    def pushover_enabled?
+      !@pushover_enabled.empty?
     end
   end
 end

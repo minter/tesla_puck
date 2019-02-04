@@ -12,6 +12,11 @@ module TeslaPuck
       @car = tesla_api.vehicles.first
     end
 
+    def notify(title, message)
+      client = Rushover::Client.new(@config.pushover_token)
+      return client.notify(@config.pushover_user_key, message, :title => title)
+    end
+
     def wake_up!
       @car.wake_up
       sleep 5 while @car.vehicle_state.nil?
