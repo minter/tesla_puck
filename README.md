@@ -10,8 +10,6 @@ If there's no home game today, it just quietly exits, to try again tomorrow.
 
 You can use this for your own local team and arena - just set those in the configuration file and run it on your own Ruby-friendly server!
 
-**Want to buy a Tesla? Get some free stuff by using [my referral link](https://ts.la/wade22188)!**
-
 ## Requirements
 
 The following technologies are required to run this:
