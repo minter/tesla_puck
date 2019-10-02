@@ -13,27 +13,35 @@ module TeslaPuck
 
       # If the scheduler is nil, no games for your team today. Try again tomorrow.
       unless game.scheduled_for_today?
-        logger.debug ' There is no game scheduled today for your team. Exiting.' if @config.log_enabled?
+        if @config.log_enabled?
+          logger.debug ' There is no game scheduled today for your team. Exiting.'
+        end
         return
       end
 
       # Quit until tomorrow if we're not home (because we're not parked at the
       # arena for an away game, natch)
       unless game.my_team_home?
-        logger.debug 'Your team is not the home team for the game today. Exiting.' if @config.log_enabled?
+        if @config.log_enabled?
+          logger.debug 'Your team is not the home team for the game today. Exiting.'
+        end
         return
       end
 
       # If the game hasn't started yet, re-queue for an hour from now
       if game.pending?
-        logger.debug 'There is a game today, but it has not started yet. Rescheduling for an hour past start time.' if @config.log_enabled?
+        if @config.log_enabled?
+          logger.debug 'There is a game today, but it has not started yet. Rescheduling for an hour past start time.'
+        end
         self.class.perform_at(game.game_time + 3600)
         return
       end
 
       # Re-queue for 5 minutes later or so if the game is in progress
       if game.in_progress?
-        logger.debug 'Your game is in progress. Checking back in 5 minutes for a final.' if @config.log_enabled?
+        if @config.log_enabled?
+          logger.debug 'Your game is in progress. Checking back in 5 minutes for a final.'
+        end
         self.class.perform_in 300
         return
       end
@@ -51,7 +59,9 @@ module TeslaPuck
 
       # Re-queue for tomorrow if the car's not at the arena
       unless car.at_arena?
-        logger.debug 'Your car is not close enough to the arena. Exiting.' if @config.log_enabled?
+        if @config.log_enabled?
+          logger.debug 'Your car is not close enough to the arena. Exiting.'
+        end
         return
       end
 
@@ -63,7 +73,9 @@ module TeslaPuck
         car.celebrate!
       end
 
-      logger.debug 'Preparing to turn on climate control and head for home!' if @config.log_enabled?
+      if @config.log_enabled?
+        logger.debug 'Preparing to turn on climate control and head for home!'
+      end
       car.prepare_to_leave!
     end
   end
