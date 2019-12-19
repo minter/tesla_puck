@@ -1,4 +1,4 @@
-Metrics/LineLength:
+Layout/LineLength:
   Exclude:
     - 'lib/**/*'
 

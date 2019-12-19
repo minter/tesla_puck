@@ -1,0 +1,24 @@
+name: Verify
+on: pull_request
+
+jobs:
+  verify:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.6.x
+      - name: Install dependencies
+        run: |
+          sudo apt-get -yqq install libpq-dev
+          gem install bundler
+          bundle install
+
+      - name: Run Rubocop
+        run: bundle exec rubocop
+      - name: Run Bundler Audit
+        run: bundle exec bundler-audit --update --ignore CVE-2015-9284
