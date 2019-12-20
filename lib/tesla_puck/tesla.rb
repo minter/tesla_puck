@@ -14,7 +14,7 @@ module TeslaPuck
 
     def notify(title, message)
       client = Rushover::Client.new(@config.pushover_token)
-      return client.notify(@config.pushover_user_key, message, :title => title)
+      client.notify(@config.pushover_user_key, message, title: title)
     end
 
     def wake_up!
