@@ -25,7 +25,7 @@ GEM
     faye-websocket (0.10.9)
       eventmachine (>= 0.12.0)
       websocket-driver (>= 0.5.1)
-    geocoder (1.5.2)
+    geocoder (1.6.1)
     http-accept (1.7.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
@@ -94,7 +94,7 @@ PLATFORMS
 
 DEPENDENCIES
   bundler-audit (~> 0.6)
-  geocoder (~> 1.5.0)
+  geocoder (~> 1.6.1)
   httparty (~> 0.17)
   pry (~> 0.12.2)
   rack (~> 2.0.8)
