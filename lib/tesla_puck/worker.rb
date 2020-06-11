@@ -26,18 +26,14 @@ module TeslaPuck
 
       # If the scheduler is nil, no games for your team today. Try again tomorrow.
       unless game.scheduled_for_today?
-        if @config.log_enabled?
-          logger.debug ' There is no game scheduled today for your team. Exiting.'
-        end
+        logger.debug ' There is no game scheduled today for your team. Exiting.' if @config.log_enabled?
         return
       end
 
       # Quit until tomorrow if we're not home (because we're not parked at the
       # arena for an away game, natch)
       unless game.my_team_home?
-        if @config.log_enabled?
-          logger.debug 'Your team is not the home team for the game today. Exiting.'
-        end
+        logger.debug 'Your team is not the home team for the game today. Exiting.' if @config.log_enabled?
         return
       end
 
@@ -52,9 +48,7 @@ module TeslaPuck
 
       # Re-queue for 5 minutes later or so if the game is in progress
       if game.in_progress?
-        if @config.log_enabled?
-          logger.debug 'Your game is in progress. Checking back in 5 minutes for a final.'
-        end
+        logger.debug 'Your game is in progress. Checking back in 5 minutes for a final.' if @config.log_enabled?
         if @config.pushover_enabled? && !_notified?
           _notified = true
           notify('Game Started', 'Tesla Puck is tracking your game.')
@@ -76,9 +70,7 @@ module TeslaPuck
 
       # Re-queue for tomorrow if the car's not at the arena
       unless car.at_arena?
-        if @config.log_enabled?
-          logger.debug 'Your car is not close enough to the arena. Exiting.'
-        end
+        logger.debug 'Your car is not close enough to the arena. Exiting.' if @config.log_enabled?
         return
       end
 
@@ -90,13 +82,9 @@ module TeslaPuck
         car.celebrate!
       end
 
-      if @config.log_enabled?
-        logger.debug 'Preparing to turn on climate control and head for home!'
-      end
+      logger.debug 'Preparing to turn on climate control and head for home!' if @config.log_enabled?
 
-      if @config.pushover_enabled?
-        notify('Starting Climate Control', 'Tesla Puck is turning on climate control.')
-      end
+      notify('Starting Climate Control', 'Tesla Puck is turning on climate control.') if @config.pushover_enabled?
 
       car.prepare_to_leave!
     end
