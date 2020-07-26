@@ -92,7 +92,7 @@ Philadelphia Flyers | 4
 Pittsburgh Penguins | 5
 St. Louis Blues | 19
 San Jose Sharks | 28
-Seattle | 55
+Seattle Kraken | 55
 Tampa Bay Lightning | 14
 Toronto Maple Leafs | 10
 Vancouver Canucks | 23
