@@ -8,7 +8,7 @@ gem 'pry', '~> 0.12.2'
 gem 'rack', '~> 2.2'
 gem 'rushover', '~> 0.3.0'
 gem 'sidekiq', '~> 6.0'
-gem 'tesla_api', '~> 1.5'
+gem 'tesla_api', '~> 3.0'
 gem 'tzinfo', '~> 2.0.0'
 
 group :development do
