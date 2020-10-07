@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-gem 'geocoder', '~> 1.6.1'
+gem 'geocoder', '~> 1.6.4'
 gem 'httparty', '~> 0.17'
 gem 'pry', '~> 0.12.2'
 gem 'rack', '~> 2.2'
