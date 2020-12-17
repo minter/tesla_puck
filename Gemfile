@@ -9,7 +9,7 @@ gem 'rack', '~> 2.2'
 gem 'rushover', '~> 0.3.0'
 gem 'sidekiq', '~> 6.0'
 gem 'tesla_api', '~> 1.5'
-gem 'tzinfo', '~> 2.0.0'
+gem 'tzinfo', '~> 2.0.4'
 
 group :development do
   gem 'bundler-audit', '~> 0.6'
