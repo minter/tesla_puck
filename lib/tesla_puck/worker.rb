@@ -18,7 +18,7 @@ module TeslaPuck
       resp
     end
 
-    def perform(_notified = false)
+    def perform(_notified: false)
       @config = TeslaPuck::Config.new
 
       game = Scheduler.new

@@ -45,12 +45,11 @@ module TeslaPuck
     end
 
     def my_team_win?
-      win = if @away['team']['id'].to_i == @config.nhl_team_id
-              @away['score'] > @home['score']
-            else
-              @home['score'] > @away['score']
-            end
-      win
+      if @away['team']['id'].to_i == @config.nhl_team_id
+        @away['score'] > @home['score']
+      else
+        @home['score'] > @away['score']
+      end
     end
   end
 end

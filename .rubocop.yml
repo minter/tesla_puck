@@ -1,3 +1,7 @@
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 2.7
+
 Layout/LineLength:
   Exclude:
     - 'lib/**/*'
