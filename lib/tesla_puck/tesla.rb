@@ -5,9 +5,9 @@ module TeslaPuck
   class Tesla
     def initialize
       @config = TeslaPuck::Config.new
-      tesla_api = TeslaApi::Client.new(@config.tesla_email,
-                                       @config.tesla_client_id,
-                                       @config.tesla_client_secret)
+      tesla_api = TeslaApi::Client.new(email: @config.tesla_email,
+                                       client_id: @config.tesla_client_id,
+                                       client_secret: @config.tesla_client_secret)
       tesla_api.login!(@config.tesla_password)
       @car = tesla_api.vehicles.first
     end
