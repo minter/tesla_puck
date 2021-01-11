@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'sidekiq-scheduler'
+
 module TeslaPuck
   # The Sidekiq worker that polls the NHL API and connects to your car
   class Worker

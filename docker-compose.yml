@@ -22,7 +22,7 @@ services:
     depends_on:
       - "redis"
     build: .
-    command: bundle exec sidekiq -g teslapuck -r /app/lib/tesla_puck.rb
+    command: bundle exec sidekiq -C config/sidekiq.yml -g teslapuck -r /app/lib/tesla_puck.rb
     volumes:
       - ".:/app"
     environment:

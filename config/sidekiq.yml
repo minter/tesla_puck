@@ -1,0 +1,4 @@
+:schedule:
+  tesla_puck_worker:
+    cron: '0 0 12 * * * UTC'
+    class: TeslaPuck::Worker
