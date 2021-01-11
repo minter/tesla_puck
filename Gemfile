@@ -2,9 +2,11 @@
 
 source 'https://rubygems.org'
 
+gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'geocoder', '~> 1.6.1'
 gem 'httparty', '~> 0.17'
 gem 'pry', '~> 0.13.1'
+gem 'puma', '~> 5.1.1'
 gem 'rack', '~> 2.2'
 gem 'rushover', '~> 0.3.0'
 gem 'sidekiq', '~> 6.0'

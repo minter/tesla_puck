@@ -1,0 +1,6 @@
+.git/
+.github/
+.bundle/
+.ruby-version
+.ruby-gemset
+tesla_puck.log

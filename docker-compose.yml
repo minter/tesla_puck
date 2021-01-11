@@ -1,0 +1,32 @@
+version: "3.8"
+services:
+  redis:
+    image: "redis:4.0-alpine"
+    command: redis-server
+    volumes:
+      - "redis:/data"
+
+  website:
+    depends_on:
+      - "redis"
+    build: .
+    command: bundle exec puma config.ru
+    volumes:
+      - ".:/app"
+    ports:
+      - "${WEB_PORT}:9292"
+    environment:
+      REDIS_URL: redis://redis:6379/0
+
+  sidekiq:
+    depends_on:
+      - "redis"
+    build: .
+    command: bundle exec sidekiq -g teslapuck -r /app/lib/tesla_puck.rb
+    volumes:
+      - ".:/app"
+    environment:
+      REDIS_URL: redis://redis:6379/0
+
+volumes:
+  redis:

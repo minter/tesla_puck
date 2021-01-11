@@ -4,11 +4,10 @@ module TeslaPuck
   # Models functions with the NHL StatsWeb API
   class Scheduler
     def initialize
-      @config = TeslaPuck::Config.new
-      @time_zone = TZInfo::Timezone.get(@config.time_zone)
+      @time_zone = TZInfo::Timezone.get(ENV['TIME_ZONE'])
       today = @time_zone.to_local(Time.now).strftime('%Y-%m-%d')
 
-      @game = HTTParty.get("https://statsapi.web.nhl.com/api/v1/schedule?teamId=#{@config.nhl_team_id}&date=#{today}")['dates'].first
+      @game = HTTParty.get("https://statsapi.web.nhl.com/api/v1/schedule?teamId=#{ENV['NHL_TEAM_ID']}&date=#{today}")['dates'].first
       @scheduled = @game.nil? ? false : true
       return if @scheduled == false
 
@@ -41,11 +40,11 @@ module TeslaPuck
     end
 
     def my_team_home?
-      @home['team']['id'].to_i == @config.nhl_team_id
+      @home['team']['id'].to_i == ENV['NHL_TEAM_ID'].to_i
     end
 
     def my_team_win?
-      if @away['team']['id'].to_i == @config.nhl_team_id
+      if @away['team']['id'].to_i == ENV['NHL_TEAM_ID'].to_i
         @away['score'] > @home['score']
       else
         @home['score'] > @away['score']

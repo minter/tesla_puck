@@ -4,17 +4,16 @@ module TeslaPuck
   # Models the functions with the Tesla API
   class Tesla
     def initialize
-      @config = TeslaPuck::Config.new
-      tesla_api = TeslaApi::Client.new(email: @config.tesla_email,
-                                       client_id: @config.tesla_client_id,
-                                       client_secret: @config.tesla_client_secret)
-      tesla_api.login!(@config.tesla_password)
+      tesla_api = TeslaApi::Client.new(email: ENV['TESLA_EMAIL'],
+                                       client_id: ENV['TESLA_CLIENT_ID'],
+                                       client_secret: ENV['TESLA_CLIENT_SECRET'])
+      tesla_api.login!(ENV['TESLA_PASSWORD'])
       @car = tesla_api.vehicles.first
     end
 
     def notify(title, message)
-      client = Rushover::Client.new(@config.pushover_token)
-      client.notify(@config.pushover_user_key, message, title: title)
+      client = Rushover::Client.new(ENV['PUSHOVER_TOKEN'])
+      client.notify(ENV['PUSHOVER_USER_KEY'], message, title: title)
     end
 
     def wake_up!
@@ -24,8 +23,8 @@ module TeslaPuck
 
     def at_arena?
       car_coordinates = [@car.drive_state['latitude'], @car.drive_state['longitude']]
-      arena_coordinates = [@config.arena_latitude, @config.arena_longitude]
-      Geocoder::Calculations.distance_between(car_coordinates, arena_coordinates) < @config.arena_parking_distance_miles
+      arena_coordinates = [ENV['ARENA_LATITUDE'].to_f, ENV['ARENA_LONGITUDE'].to_f]
+      Geocoder::Calculations.distance_between(car_coordinates, arena_coordinates) < ENV['ARENA_PARKING_DISTANCE_MILES'].to_f
     end
 
     def celebrate!
@@ -39,7 +38,7 @@ module TeslaPuck
 
     def prepare_to_leave!
       @car.auto_conditioning_start
-      @car.navigation_request(@config.home_address)
+      @car.navigation_request(ENV['HOME_ADDRESS'])
     end
   end
 end
