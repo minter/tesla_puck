@@ -37,7 +37,7 @@ services:
     depends_on:
       - "redis"
     image: minter/tesla_puck:latest
-    command: bundle exec puma config.ru
+    command: bundle exec puma -e production config.ru
     ports:
       - "${WEB_PORT}:9292"
     environment:
@@ -47,7 +47,7 @@ services:
     depends_on:
       - "redis"
     image: minter/tesla_puck:latest
-    command: bundle exec sidekiq -C config/sidekiq.yml -g teslapuck -r /app/lib/tesla_puck.rb
+    command: bundle exec sidekiq -e production -C config/sidekiq.yml -g teslapuck -r /app/lib/tesla_puck.rb
     environment:
       REDIS_URL: redis://redis:6379/0
 
