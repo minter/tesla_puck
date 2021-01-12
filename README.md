@@ -55,7 +55,7 @@ volumes:
   redis:
 ```
 
-Then, add your `.env` file (see the [Configuration](#configuration) section below)
+Then, add your `.env` file (see the [Configuration](#configuration-with-env) section below)
 
 Once both files are in place, run: `docker-compose up -d` - that will pull the required images, start the servides, and run them in the background. The Sidekiq admin will be available on whichever port you set the `WEB_PORT` value to.
 
@@ -63,7 +63,7 @@ Once both files are in place, run: `docker-compose up -d` - that will pull the r
 
 Clone this repository to your system.
 
-Create a `.env` file or copy the `.env.example` file to `.env` and edit it for your values (see the [Configuration](#configuration) section below)
+Create a `.env` file or copy the `.env.example` file to `.env` and edit it for your values (see the [Configuration](#configuration-with-env) section below)
 
 Inside the checked-out repository, run: `docker-compose up` using the `docker-compose.yml` provided inside the repository.
 
@@ -86,7 +86,7 @@ Install the required gems with Bundler
 
 `bundle install --without development`
 
-Copy `.env.example` to `.env` and edit the values to match your requirements ([see below](#configuration))
+Copy `.env.example` to `.env` and edit the values to match your requirements ([see below](#configuration-with-env))
 
 Configure systemd or your daemonizer of choice to run Sidekiq. An example is provided in `examples/sidekiq-teslapuck.service`
 
