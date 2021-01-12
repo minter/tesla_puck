@@ -109,7 +109,6 @@ The configuration options are as follows:
 * **HOME_ADDRESS** - The address of where you're going after the game. We pre-load this into your navigation after the game is over. Should be street/city/state/zip.
 * **LOG_ENABLED** - If you want to have a log written to help you see what's happening, set this value to anything. If it's blank, we will not log. Recommended value to enable the log is `true`
 * **LOG_FILE** - If you're logging, here's where to write the log file.
-* **redis_url** - The URL to your redis database (use the `/1` or another number at the end to choose an unused database)
 * **TESLA_CLIENT_ID** - The client ID that allows access to the Tesla API. This seems to get passed around the internet, and there doesn't seem to be a reliable way to get it programatically.
 * **TESLA_CLIENT_SECRET** - The client secret for the Tesla API. See above.
 * **TESLA_EMAIL** - Your email address that you use to log into your Tesla account (only stored locally and used to authenticate to your car).
