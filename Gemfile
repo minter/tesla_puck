@@ -16,5 +16,5 @@ gem 'tzinfo', '~> 2.0.0'
 
 group :development do
   gem 'bundler-audit', '~> 0.6'
-  gem 'rubocop', '~> 1.7'
+  gem 'rubocop', '~> 1.8'
 end
