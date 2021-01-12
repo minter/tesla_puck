@@ -1,0 +1,21 @@
+[Unit]
+Description=TeslaPuck
+Requires=docker.service
+After=docker.service
+
+[Service]
+WorkingDirectory=/app/tesla_puck
+Type=oneshot
+RemainAfterExit=yes
+User=docker
+Group=docker
+
+# Shutdown container (if running) when unit is stopped
+ExecStartPre=/usr/bin/docker-compose down -v
+# Start container when unit is started
+ExecStart=/usr/bin/docker-compose up -d
+# Stop container when unit is stopped
+ExecStop=/usr/bin/docker-compose down -v
+
+[Install]
+WantedBy=multi-user.target
