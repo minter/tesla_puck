@@ -8,10 +8,15 @@ ENV APP_HOME /app
 RUN mkdir -p $APP_HOME
 WORKDIR $APP_HOME
 
-COPY Gemfile Gemfile.lock ./
+ADD Gemfile Gemfile.lock ./
 
+RUN bundle config set without 'development'
 RUN bundle install
 RUN bundle binstubs --all
 
-COPY . .
+RUN ln -sf /dev/stdout /app/tesla_puck.log
+RUN ln -sf /dev/stderr /app/tesla_puck.log
+
+
+ADD . .
 EXPOSE 9292

@@ -22,7 +22,7 @@ module TeslaPuck
 
     def perform(_notified: false)
       game = Scheduler.new
-      logger = Logger.new(ENV['LOG_FILE']) if ENV['LOG_ENABLED']
+      logger = Logger.new('log/tesla_puck.log') if ENV['LOG_ENABLED']
 
       # If the scheduler is nil, no games for your team today. Try again tomorrow.
       unless game.scheduled_for_today?
