@@ -41,21 +41,26 @@ services:
     ports:
       - "${WEB_PORT}:9292"
     environment:
-      REDIS_URL: redis://redis:6379/0
+      - REDIS_URL=redis://redis:6379/0
+      - WEB_PASSWORD=${WEB_PASSWORD}
 
   sidekiq:
     depends_on:
       - "redis"
     image: minter/tesla_puck:latest
     command: bundle exec sidekiq -e production -C config/sidekiq.yml -g teslapuck -r /app/lib/tesla_puck.rb
+    env_file:
+       - ./.env
     environment:
-      REDIS_URL: redis://redis:6379/0
+      - REDIS_URL=redis://redis:6379/0
+      - TIME_ZONE=${TIME_ZONE}
 
 volumes:
   redis:
+
 ```
 
-Then, add your `.env` file (see the [Configuration](#configuration-with-env) section below)
+Then, add your `.env` file into the same directory that has `docker-compose.yml` (see the [Configuration](#configuration-with-env) section below)
 
 Once both files are in place, run: `docker-compose up -d` - that will pull the required images, start the servides, and run them in the background. The Sidekiq admin will be available on whichever port you set the `WEB_PORT` value to.
 
