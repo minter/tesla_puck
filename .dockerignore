@@ -4,3 +4,5 @@
 .ruby-version
 .ruby-gemset
 tesla_puck.log
+.env
+.env.example
