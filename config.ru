@@ -9,8 +9,4 @@ require_relative 'lib/tesla_puck'
 require 'sidekiq/web'
 require 'sidekiq-scheduler/web'
 
-use Rack::Auth::Basic, 'TeslaPuck' do |_username, password|
-  ENV['WEB_PASSWORD'] == password
-end
-
 run Sidekiq::Web

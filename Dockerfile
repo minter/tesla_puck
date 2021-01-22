@@ -14,9 +14,7 @@ RUN bundle config set without 'development'
 RUN bundle install
 RUN bundle binstubs --all
 
-RUN ln -sf /dev/stdout /app/tesla_puck.log
 RUN ln -sf /dev/stderr /app/tesla_puck.log
-
 
 ADD . .
 EXPOSE 9292
