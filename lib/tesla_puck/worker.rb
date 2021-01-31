@@ -20,7 +20,7 @@ module TeslaPuck
       resp
     end
 
-    def perform(_notified: false)
+    def perform(notified)
       game = Scheduler.new
       logger = Logger.new(ENV['LOG_FILE']) if ENV['LOG_ENABLED']
 
@@ -49,8 +49,8 @@ module TeslaPuck
       # Re-queue for 5 minutes later or so if the game is in progress
       if game.in_progress?
         logger.debug 'Your game is in progress. Checking back in 5 minutes for a final.' if ENV['LOG_ENABLED']
-        if ENV['PUSHOVER_ENABLED'] && !_notified?
-          _notified = true
+        if ENV['PUSHOVER_ENABLED'] && !notified
+          notified = true
           notify('Game Started', 'Tesla Puck is tracking your game.')
         end
         self.class.perform_in 300
