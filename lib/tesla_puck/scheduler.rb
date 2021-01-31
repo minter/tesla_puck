@@ -8,11 +8,8 @@ module TeslaPuck
       today = @time_zone.to_local(Time.now).strftime('%Y-%m-%d')
 
       @game = HTTParty.get("https://statsapi.web.nhl.com/api/v1/schedule?teamId=#{ENV['NHL_TEAM_ID']}&date=#{today}")['dates'].first
-      @scheduled = if @game.nil?
-                     false
-                   else
-                     (@game['games'].first['status']['detailedState'] == 'Scheduled')
-                   end
+      @scheduled = @game.nil? ? false : true
+      @scheduled = false if @game['games'].first['status']['detailedState'] == 'Postponed'
       return if @scheduled == false
 
       @away = @game['games'].first['teams']['away']
