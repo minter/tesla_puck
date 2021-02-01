@@ -170,7 +170,7 @@ GEM
       sidekiq (>= 3)
       thwait
       tilt (>= 1.4.0)
-    tesla_api (3.0.7)
+    tesla_api (3.1.0)
       async-websocket
       faraday
       faraday_middleware
@@ -202,7 +202,7 @@ DEPENDENCIES
   rushover (~> 0.3.0)
   sidekiq (~> 6.0)
   sidekiq-scheduler (~> 3.0)
-  tesla_api (~> 3.0)
+  tesla_api (~> 3.1)
   tzinfo (~> 2.0.0)
 
 BUNDLED WITH
