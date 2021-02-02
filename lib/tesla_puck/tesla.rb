@@ -4,10 +4,7 @@ module TeslaPuck
   # Models the functions with the Tesla API
   class Tesla
     def initialize
-      tesla_api = TeslaApi::Client.new(email: ENV['TESLA_EMAIL'],
-                                       client_id: ENV['TESLA_CLIENT_ID'],
-                                       client_secret: ENV['TESLA_CLIENT_SECRET'])
-      tesla_api.login!(ENV['TESLA_PASSWORD'])
+      tesla_api = TeslaApi::Client.new(access_token: ENV['TESLA_ACCESS_TOKEN'])
       @car = tesla_api.vehicles.first
     end
 
