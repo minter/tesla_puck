@@ -119,7 +119,7 @@ GEM
     protocol-websocket (0.7.5)
       protocol-http (~> 0.2)
       protocol-http1 (~> 0.2)
-    pry (0.13.1)
+    pry (0.14.0)
       coderay (~> 1.1)
       method_source (~> 1.0)
     puma (5.2.0)
@@ -200,7 +200,7 @@ DEPENDENCIES
   dotenv-rails
   geocoder (~> 1.6.1)
   httparty (~> 0.17)
-  pry (~> 0.13.1)
+  pry (~> 0.14.0)
   puma (~> 5.2.0)
   rack (~> 2.2)
   rubocop (~> 1.8)
