@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/timdorr/tesla-api.git
-  revision: 510bf3993a099a00189c618b0c57e4e84d83d349
+  revision: 625771c06687e4b15d842e731d52c2aef63660a9
   specs:
     tesla_api (3.1.0)
       async-websocket
@@ -30,7 +30,7 @@ GEM
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
     ast (2.4.2)
-    async (1.28.5)
+    async (1.28.7)
       console (~> 1.10)
       nio4r (~> 2.3)
       timers (~> 4.1)
@@ -41,9 +41,9 @@ GEM
       protocol-http (~> 0.21.0)
       protocol-http1 (~> 0.13.0)
       protocol-http2 (~> 0.14.0)
-    async-io (1.30.1)
+    async-io (1.30.2)
       async (~> 1.14)
-    async-pool (0.3.3)
+    async-pool (0.3.4)
       async (~> 1.25)
     async-websocket (0.16.0)
       async-http (~> 0.51)
@@ -102,7 +102,7 @@ GEM
     multi_xml (0.6.0)
     multipart-post (2.1.1)
     netrc (0.11.0)
-    nio4r (2.5.4)
+    nio4r (2.5.5)
     nokogiri (1.11.1)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
