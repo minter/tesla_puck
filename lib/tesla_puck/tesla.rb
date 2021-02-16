@@ -4,7 +4,8 @@ module TeslaPuck
   # Models the functions with the Tesla API
   class Tesla
     def initialize
-      tesla_api = TeslaApi::Client.new(access_token: ENV['TESLA_ACCESS_TOKEN'])
+      tesla_api = TeslaApi::Client.new(email: ENV['TESLA_EMAIL'], client_id: ENV['TESLA_CLIENT_ID'], client_secret: ENV['TESLA_CLIENT_SECRET'])
+      tesla_api.login!(ENV['TESLA_PASSWORD'])
       @car = tesla_api.vehicles.first
     end
 
@@ -20,7 +21,7 @@ module TeslaPuck
 
     def at_arena?
       car_coordinates = [@car.drive_state['latitude'], @car.drive_state['longitude']]
-      arena_coordinates = [ENV['ARENA_LATITUDE'].to_f, ENV['ARENA_LONGITUDE'].to_f]
+      arena_coordinates = Geocoder.search(ENV['ARENA_ADDRESS']).first.coordinates
       Geocoder::Calculations.distance_between(car_coordinates, arena_coordinates) < ENV['ARENA_PARKING_DISTANCE_MILES'].to_f
     end
 

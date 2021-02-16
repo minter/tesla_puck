@@ -108,13 +108,13 @@ Configuration values are in the form:
 `CONFIGURATION_VARIABLE=value`
 
 The configuration options are as follows:
-* **ARENA_LATITUDE** - The latitude of the arena. You can get this from a [geocoding website](https://geocoding.geo.census.gov/geocoder/locations/address?form).
-* **ARENA_LONGITUDE** - The longitude of the arena. See above.
+* **ARENA_ADDRESS** - The full street address for the arena. Will be geocoded into latitude/longitude assuming the address can be found.
 * **ARENA_PARKING_DISTANCE_MILES** - How close to the arena (in miles) does your car need to be for this to work. We don't want to start your car if it's home in your garage.
 * **HOME_ADDRESS** - The address of where you're going after the game. We pre-load this into your navigation after the game is over. Should be street/city/state/zip.
 * **LOG_ENABLED** - If you want to have a log written to help you see what's happening, set this value to anything. If it's blank, we will not log. Recommended value to enable the log is `true`
 * **LOG_FILE** - If you're logging, here's where to write the log file.
-* **TESLA_ACCESS_TOKEN** - Tesla has switched over to a new OAuth system and getting this access token is currently a mess. Hopefully it gets better. In the meantime, see the documentation [here](https://tesla-api.timdorr.com/api-basics/authentication), and know you'll need to update your token every 45 days.
+* **TESLA_EMAIL** - The email address to log in with your Tesla account (there may be issues if you have MFA enabled).
+* **TESLA_PASSWORD** - The password to log into your Tesla account
 * **TESLA_CLIENT_ID** - The client ID that allows access to the Tesla API. This seems to get [passed around the internet](https://pastebin.com/pS7Z6yyP), and there doesn't seem to be a reliable way to get it programatically.
 * **TESLA_CLIENT_SECRET** - The client secret for the Tesla API. See above.
 * **TIME_ZONE** - The time zone that your team is in. Provided in `TZInfo` format, so you'll want to pick one of these:
