@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/timdorr/tesla-api.git
-  revision: 5e515ff355c9f93b25086bfae36512fe87295e41
+  revision: c0bce0cb8af7bd4bca93f21070eabbd73c718101
   specs:
     tesla_api (3.1.0)
       async-websocket
