@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 
 gem 'dotenv-rails', require: 'dotenv/rails-now'
-gem 'geocoder', '~> 1.6.5'
+gem 'geocoder', '~> 1.6.6'
 gem 'httparty', '~> 0.17'
 gem 'pry', '~> 0.14.0'
 gem 'puma', '~> 5.2.2'
