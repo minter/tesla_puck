@@ -4,27 +4,27 @@ module TeslaPuck
   # Models functions with the NHL StatsWeb API
   class Scheduler
     def initialize
-      @time_zone = TZInfo::Timezone.get(ENV['TIME_ZONE'])
-      today = @time_zone.to_local(Time.now).strftime('%Y-%m-%d')
+      @time_zone = TZInfo::Timezone.get(ENV["TIME_ZONE"])
+      today = @time_zone.to_local(Time.now).strftime("%Y-%m-%d")
 
-      @game = HTTParty.get("https://statsapi.web.nhl.com/api/v1/schedule?teamId=#{ENV['NHL_TEAM_ID']}&date=#{today}")['dates'].first
+      @game = HTTParty.get("https://statsapi.web.nhl.com/api/v1/schedule?teamId=#{ENV["NHL_TEAM_ID"]}&date=#{today}")["dates"].first
       @scheduled = if @game.nil?
-                     false
-                   else
-                     (@game['games'].first['status']['detailedState'] != 'Postponed')
-                   end
+        false
+      else
+        (@game["games"].first["status"]["detailedState"] != "Postponed")
+      end
       return if @scheduled == false
 
-      @away = @game['games'].first['teams']['away']
-      @home = @game['games'].first['teams']['home']
+      @away = @game["games"].first["teams"]["away"]
+      @home = @game["games"].first["teams"]["home"]
     end
 
     def game_time
-      @time_zone.to_local(Time.parse(@game['games'].first['gameDate']))
+      @time_zone.to_local(Time.parse(@game["games"].first["gameDate"]))
     end
 
     def status
-      @game['games'].first['status']['detailedState']
+      @game["games"].first["status"]["detailedState"]
     end
 
     def scheduled_for_today?
@@ -32,7 +32,7 @@ module TeslaPuck
     end
 
     def pending?
-      status == 'Scheduled' || status == 'Pre-Game'
+      status == "Scheduled" || status == "Pre-Game"
     end
 
     def in_progress?
@@ -40,18 +40,18 @@ module TeslaPuck
     end
 
     def final?
-      status == 'Final'
+      status == "Final"
     end
 
     def my_team_home?
-      @home['team']['id'].to_i == ENV['NHL_TEAM_ID'].to_i
+      @home["team"]["id"].to_i == ENV["NHL_TEAM_ID"].to_i
     end
 
     def my_team_win?
-      if @away['team']['id'].to_i == ENV['NHL_TEAM_ID'].to_i
-        @away['score'] > @home['score']
+      if @away["team"]["id"].to_i == ENV["NHL_TEAM_ID"].to_i
+        @away["score"] > @home["score"]
       else
-        @home['score'] > @away['score']
+        @home["score"] > @away["score"]
       end
     end
   end
