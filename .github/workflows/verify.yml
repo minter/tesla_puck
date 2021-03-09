@@ -18,7 +18,7 @@ jobs:
           gem install bundler
           bundle install
 
-      - name: Run Rubocop
+      - name: Run Standard
         run: bundle exec standardrb
       - name: Run Bundler Audit
         run: bundle exec bundler-audit --update
