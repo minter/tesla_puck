@@ -15,7 +15,7 @@ gem "tesla_api", "~>3.1"
 gem "tzinfo", "~> 2.0.0"
 
 group :development do
-  gem "bundler-audit", "~> 0.6"
+  gem "bundler-audit", "~> 0.8"
   gem "rubocop", "~> 1.11"
   gem "standard", "~> 1.0"
 end
