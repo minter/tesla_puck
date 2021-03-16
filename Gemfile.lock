@@ -162,7 +162,7 @@ GEM
     rushover (0.3.0)
       json
       rest-client
-    sidekiq (6.1.3)
+    sidekiq (6.2.0)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
       redis (>= 4.2.0)
@@ -206,7 +206,7 @@ DEPENDENCIES
   rack (~> 2.2)
   rubocop (~> 1.11)
   rushover (~> 0.3.0)
-  sidekiq (~> 6.0)
+  sidekiq (~> 6.2)
   sidekiq-scheduler (~> 3.0)
   standard (~> 1.0)
   tesla_api (~> 3.1)
