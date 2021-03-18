@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/timdorr/tesla-api.git
+  revision: 19c1f793e34af3afd6750402c60fc14ac2c687bd
+  specs:
+    tesla_api (3.1.0)
+      async-websocket
+      faraday
+      faraday_middleware
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -176,10 +185,6 @@ GEM
     standard (1.0.4)
       rubocop (= 1.11.0)
       rubocop-performance (= 1.10.1)
-    tesla_api (3.1.0)
-      async-websocket
-      faraday
-      faraday_middleware
     thor (1.1.0)
     thwait (0.2.0)
       e2mmap
@@ -209,7 +214,7 @@ DEPENDENCIES
   sidekiq (~> 6.2)
   sidekiq-scheduler (~> 3.0)
   standard (~> 1.0)
-  tesla_api (~> 3.1)
+  tesla_api!
   tzinfo (~> 2.0.0)
 
 BUNDLED WITH
