@@ -11,12 +11,6 @@ require "tesla_api"
 require "tzinfo"
 require "yaml"
 
-module TeslaApi
-  class Client
-    DEFAULT_HEADERS = {}
-  end
-end
-
 require_relative "tesla_puck/scheduler"
 require_relative "tesla_puck/tesla"
 require_relative "tesla_puck/sidekiq_config"
