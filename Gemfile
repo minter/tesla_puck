@@ -11,7 +11,7 @@ gem "rack", "~> 2.2"
 gem "rushover", "~> 0.3.0"
 gem "sidekiq", "~> 6.2"
 gem "sidekiq-scheduler", "~>3.0"
-gem 'tesla_api', git: 'https://github.com/timdorr/tesla-api.git'
+gem "tesla_api", git: "https://github.com/timdorr/tesla-api.git"
 gem "tzinfo", "~> 2.0.0"
 
 group :development do
