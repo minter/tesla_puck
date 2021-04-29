@@ -1,0 +1,22 @@
+version: 2
+updates:
+- package-ecosystem: bundler
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "10:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: sidekiq
+    versions:
+    - 6.2.1
+  - dependency-name: geocoder
+    versions:
+    - 1.6.6
+  - dependency-name: tesla_api
+    versions:
+    - 3.1.0
+  - dependency-name: rubocop
+    versions:
+    - 1.9.0
+    - 1.9.1
