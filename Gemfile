@@ -16,5 +16,5 @@ gem "tzinfo", "~> 2.0.0"
 
 group :development do
   gem "bundler-audit", "~> 0.8"
-  gem "standard", "~> 1.1"
+  gem "standard", "~> 1.3"
 end
