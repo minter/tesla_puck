@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 gem "dotenv-rails", require: "dotenv/rails-now"
 gem "geocoder", "~> 1.6.7"
-gem "httparty", "~> 0.19"
+gem "httparty", "~> 0.20"
 gem "pry", "~> 0.14.1"
 gem "puma", "~> 5.5.0"
 gem "rack", "~> 2.2"
