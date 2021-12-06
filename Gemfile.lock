@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/timdorr/tesla-api.git
-  revision: 01844a122d2a96dab8bf82e87ff45457e5e2bc90
+  revision: e55d61881bf1373a2df0f5aa0c92409b909d1ae0
   specs:
     tesla_api (3.1.0)
       async-websocket
@@ -56,7 +56,7 @@ GEM
     coderay (1.1.3)
     concurrent-ruby (1.1.9)
     connection_pool (2.2.5)
-    console (1.13.1)
+    console (1.14.0)
       fiber-local
     crass (1.0.6)
     domain_name (0.5.20190701)
