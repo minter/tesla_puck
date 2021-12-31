@@ -4,8 +4,13 @@ module TeslaPuck
   # Models the functions with the Tesla API
   class Tesla
     def initialize
-      tesla_api = TeslaApi::Client.new(email: ENV["TESLA_EMAIL"], client_id: ENV["TESLA_CLIENT_ID"], client_secret: ENV["TESLA_CLIENT_SECRET"])
-      tesla_api.login!(ENV["TESLA_PASSWORD"])
+      # Get token - https://tesla-info.com/tesla-token.php
+      if !ENV["TESLA_ACCESS_TOKEN"].empty?
+        tesla_api = TeslaApi::Client.new(access_token: ENV["TESLA_ACCESS_TOKEN"])
+      else
+        tesla_api = TeslaApi::Client.new(email: ENV["TESLA_EMAIL"], client_id: ENV["TESLA_CLIENT_ID"], client_secret: ENV["TESLA_CLIENT_SECRET"])
+        tesla_api.login!(ENV["TESLA_PASSWORD"])
+      end
       @car = tesla_api.vehicles.first
     end
 
@@ -16,7 +21,15 @@ module TeslaPuck
 
     def wake_up!
       @car.wake_up
-      sleep 5 while @car.vehicle_state.nil?
+      timestamp = nil
+      while timestamp.nil?
+        begin
+          timestamp = @car.vehicle_state["timestamp"]
+          sleep 5
+        rescue Faraday::ClientError
+          sleep 10
+        end
+      end
     end
 
     def at_arena?
