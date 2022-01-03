@@ -93,7 +93,7 @@ GEM
     fugit (1.5.2)
       et-orbi (~> 1.1, >= 1.1.8)
       raabro (~> 1.4)
-    geocoder (1.7.0)
+    geocoder (1.7.2)
     http-accept (1.7.0)
     http-cookie (1.0.4)
       domain_name (~> 0.5)
