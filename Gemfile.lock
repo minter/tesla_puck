@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/timdorr/tesla-api.git
-  revision: 45e58c9d223dff718e108d7a4aa0f65b39e05097
+  revision: c8f7b754d2fb78fb20f9e0bfcd0e50e1d34873ec
   specs:
     tesla_api (3.1.0)
       async-websocket
@@ -68,25 +68,29 @@ GEM
     erubi (1.10.0)
     et-orbi (1.2.6)
       tzinfo
-    faraday (1.8.0)
+    faraday (1.9.3)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
       faraday-excon (~> 1.1)
-      faraday-httpclient (~> 1.0.1)
+      faraday-httpclient (~> 1.0)
+      faraday-multipart (~> 1.0)
       faraday-net_http (~> 1.0)
-      faraday-net_http_persistent (~> 1.1)
+      faraday-net_http_persistent (~> 1.0)
       faraday-patron (~> 1.0)
       faraday-rack (~> 1.0)
-      multipart-post (>= 1.2, < 3)
+      faraday-retry (~> 1.0)
       ruby2_keywords (>= 0.0.4)
     faraday-em_http (1.0.0)
     faraday-em_synchrony (1.0.0)
     faraday-excon (1.1.0)
     faraday-httpclient (1.0.1)
+    faraday-multipart (1.0.3)
+      multipart-post (>= 1.2, < 3)
     faraday-net_http (1.0.1)
     faraday-net_http_persistent (1.2.0)
     faraday-patron (1.0.0)
     faraday-rack (1.0.0)
+    faraday-retry (1.0.3)
     faraday_middleware (1.2.0)
       faraday (~> 1.0)
     fiber-local (1.0.0)
