@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/timdorr/tesla-api.git
-  revision: 8f4a24d21fce09b8b3c74e002cf065b603115674
+  revision: 82d44ef6012eb6f3e023a0fcc98e992a4f5df3cc
   specs:
     tesla_api (3.1.0)
       async-websocket
@@ -40,7 +40,7 @@ GEM
       protocol-http (~> 0.22.0)
       protocol-http1 (~> 0.14.0)
       protocol-http2 (~> 0.14.0)
-    async-io (1.32.2)
+    async-io (1.33.0)
       async
     async-pool (0.3.9)
       async (>= 1.25)
@@ -68,7 +68,7 @@ GEM
     erubi (1.10.0)
     et-orbi (1.2.6)
       tzinfo
-    faraday (1.9.3)
+    faraday (1.10.0)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
       faraday-excon (~> 1.1)
