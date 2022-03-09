@@ -1,4 +1,4 @@
-FROM ruby:3.0.2-slim
+FROM ruby:3.1.1-slim
 
 RUN apt-get -qq update && \
     apt-get -qq -y install build-essential git --fix-missing --no-install-recommends
