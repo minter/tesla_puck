@@ -97,7 +97,7 @@ GEM
     fugit (1.5.3)
       et-orbi (~> 1, >= 1.2.7)
       raabro (~> 1.4)
-    geocoder (1.7.5)
+    geocoder (1.8.0)
     http-accept (1.7.0)
     http-cookie (1.0.4)
       domain_name (~> 0.5)
@@ -223,7 +223,7 @@ PLATFORMS
 DEPENDENCIES
   bundler-audit (~> 0.9)
   dotenv-rails
-  geocoder (~> 1.7)
+  geocoder (~> 1.8)
   httparty (~> 0.20)
   pry (~> 0.14.1)
   puma (~> 5.6)
