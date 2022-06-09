@@ -64,7 +64,6 @@ GEM
     dotenv-rails (2.7.6)
       dotenv (= 2.7.6)
       railties (>= 3.2)
-    e2mmap (0.1.0)
     erubi (1.10.0)
     et-orbi (1.2.7)
       tzinfo
@@ -194,19 +193,15 @@ GEM
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
       redis (>= 4.2.0)
-    sidekiq-scheduler (3.1.1)
-      e2mmap
-      redis (>= 3, < 5)
+    sidekiq-scheduler (4.0.1)
+      redis (>= 4.2.0)
       rufus-scheduler (~> 3.2)
-      sidekiq (>= 3)
-      thwait
+      sidekiq (>= 4)
       tilt (>= 1.4.0)
     standard (1.10.0)
       rubocop (= 1.27.0)
       rubocop-performance (= 1.13.3)
     thor (1.2.1)
-    thwait (0.2.0)
-      e2mmap
     tilt (2.0.10)
     timers (4.3.3)
     tzinfo (2.0.4)
@@ -230,7 +225,7 @@ DEPENDENCIES
   rack (~> 2.2)
   rushover (~> 0.3.0)
   sidekiq (~> 6.4)
-  sidekiq-scheduler (~> 3.1)
+  sidekiq-scheduler (~> 4.0)
   standard (~> 1)
   tesla_api!
   tzinfo (~> 2.0)
