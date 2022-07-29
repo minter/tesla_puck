@@ -10,7 +10,7 @@ gem "puma", "~> 5.6"
 gem "rack", "~> 2.2"
 gem "rushover", "~> 0.3.0"
 gem "sidekiq", "~> 6.4"
-gem "sidekiq-scheduler", "~>3.1"
+gem "sidekiq-scheduler", "~>4.0"
 gem "tesla_api", git: "https://github.com/timdorr/tesla-api.git"
 gem "tzinfo", "~> 2.0"
 
