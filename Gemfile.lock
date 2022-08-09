@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/timdorr/tesla-api.git
-  revision: 849bd1e5ece08c8d40f2c67da4a75144bee043c1
+  revision: 30343062da53185a8081d51013479fc92c13d8e5
   specs:
     tesla_api (3.1.0)
       async-websocket
@@ -29,15 +29,15 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
     ast (2.4.2)
-    async (2.0.3)
+    async (1.30.3)
       console (~> 1.10)
-      io-event (~> 1.0.0)
+      nio4r (~> 2.3)
       timers (~> 4.1)
-    async-http (0.56.6)
+    async-http (0.57.0)
       async (>= 1.25)
       async-io (>= 1.28)
       async-pool (>= 0.2)
-      protocol-http (~> 0.22.0)
+      protocol-http (~> 0.23.1)
       protocol-http1 (~> 0.14.0)
       protocol-http2 (~> 0.14.0)
       traces (~> 0.4.0)
@@ -45,7 +45,7 @@ GEM
       async
     async-pool (0.3.10)
       async (>= 1.25)
-    async-websocket (0.19.0)
+    async-websocket (0.19.2)
       async-http (~> 0.54)
       async-io (~> 1.23)
       protocol-websocket (~> 0.7.0)
@@ -68,7 +68,7 @@ GEM
     erubi (1.10.0)
     et-orbi (1.2.7)
       tzinfo
-    faraday (1.10.0)
+    faraday (1.10.1)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
       faraday-excon (~> 1.1)
@@ -106,7 +106,6 @@ GEM
       multi_xml (>= 0.5.2)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
-    io-event (1.0.9)
     json (2.6.2)
     loofah (2.18.0)
       crass (~> 1.0.2)
@@ -128,7 +127,7 @@ GEM
     parser (3.1.2.0)
       ast (~> 2.4.1)
     protocol-hpack (1.4.2)
-    protocol-http (0.22.6)
+    protocol-http (0.23.1)
     protocol-http1 (0.14.4)
       protocol-http (~> 0.22)
     protocol-http2 (0.14.2)
